@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #FFF;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.4285em;
+  color: rgba(0, 0, 0, .87);
+  font-smoothing: antialiased;
+}
+
+.main{
+  height: 565px;
+  width: 400px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 6px;
+  border: 1px solid #cccc;
+  padding: 10px;
+  justify-content: center;
+  gap: 12px;
+}

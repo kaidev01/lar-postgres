@@ -5,15 +5,19 @@ export default defineConfig({
      plugins: [
           laravel({
                input: [
-                    "resources/scss/test.scss",
-                    "resources/scss/tennis.scss",
-                    "resources/scss/football.scss",
-                    "resources/scss/basketball.scss",
+                    "resources/scss/home.scss",
+                    "resources/scss/livescore.scss",
+                    "resources/scss/match_detail.scss",
+                    "resources/scss/match_detail_basketball.scss",
+                    "resources/scss/match_detail_tennis.scss",
+                    "resources/scss/result.scss",
+                    "resources/scss/schedule.scss",
+                    "resources/scss/standing.scss",
 
-                    "resources/js/test.js",
-                    "resources/js/tennis.js",
-                    "resources/js/football.js",
-                    "resources/js/basketball.js",
+                    // "resources/js/test.js",
+                    // "resources/js/tennis.js",
+                    // "resources/js/football.js",
+                    // "resources/js/basketball.js",
                ],
                refresh: true,
           }),

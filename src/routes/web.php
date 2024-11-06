@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\ApiSportController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,12 @@ use App\Http\Controllers\WebController;
 |
 */
 
-Route::get('/', [WebController::class, 'index'])->name('web.index');
-Route::get('test-db', [WebController::class, 'testDB'])->name('web.testDB');
-Route::get('test-redis', [WebController::class, 'testRedis'])->name('web.testRedis');
-Route::get('tennis', [WebController::class, 'tennis'])->name('web.tennis');
-Route::get('football', [WebController::class, 'football'])->name('web.football');
-Route::get('basketball', [WebController::class, 'basketball'])->name('web.basketball');
-Route::get('test', [WebController::class, 'test'])->name('web.test');
+Route::get('/', [ApiSportController::class, 'home'])->name('web.home');
+Route::get('home', [ApiSportController::class, 'home'])->name('web.home');
+Route::get('livescore', [ApiSportController::class, 'livescore'])->name('web.livescore');
+Route::get('match_detail', [ApiSportController::class, 'match_detail'])->name('web.match_detail');
+Route::get('match_detail_basketball', [ApiSportController::class, 'match_detail_basketball'])->name('web.match_detail_basketball');
+Route::get('match_detail_tennis', [ApiSportController::class, 'match_detail_tennis'])->name('web.match_detail_tennis');
+Route::get('result', [ApiSportController::class, 'result'])->name('web.result');
+Route::get('schedule', [ApiSportController::class, 'schedule'])->name('web.schedule');
+Route::get('standing', [ApiSportController::class, 'standing'])->name('web.standing');

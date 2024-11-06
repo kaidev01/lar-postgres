@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 
 class ExportWithBuild extends Command
 {
@@ -47,7 +48,34 @@ class ExportWithBuild extends Command
         Artisan::call('export');
 
         $this->info('Export completed successfully.');
-
+        $this->renameExportFiles();
         return Command::SUCCESS;
+    }
+
+
+    /**
+     * Rename index.html thành .html.
+     */
+    protected function renameExportFiles()
+    {
+        $exportPath = public_path(env('EXPORT_FOLDER', 'dist'));
+
+        $directories = File::directories($exportPath);
+
+        foreach ($directories as $directory) {
+            $indexPath = $directory . '/index.html';
+
+            if (File::exists($indexPath)) {
+                $newFilePath = $exportPath . '/' . basename($directory) . '.html';
+
+                File::move($indexPath, $newFilePath);
+
+                File::deleteDirectory($directory);
+
+                $this->info("Renamed {$indexPath} to {$newFilePath}");
+            }
+        }
+
+        $this->info('All index.html files have been renamed.');
     }
 }

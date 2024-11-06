@@ -58,7 +58,7 @@ return [
 
         'export' => [
             'driver' => 'local',
-            'root' => public_path('dist'),
+            'root' => public_path(env('EXPORT_FOLDER', 'dist')),
         ],
 
     ],

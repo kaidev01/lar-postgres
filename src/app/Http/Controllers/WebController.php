@@ -51,4 +51,24 @@ class WebController extends Controller
             ]);
         }
     }
+
+    public function tennis()
+    {
+        return view('web.pages.tennis');
+    }
+
+    public function football()
+    {
+        return view('web.pages.football');
+    }
+
+    public function basketball()
+    {
+        return view('web.pages.basketball');
+    }
+
+    public function test()
+    {
+        return view('web.pages.test');
+    }
 }

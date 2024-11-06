@@ -20,6 +20,8 @@ services:
                - REDIS_PORT=${REDIS_PORT}
           expose:
                - ${PHP_PORT}
+          ports:
+               - "5173:5173" # Exp
           depends_on:
                - ben_postgres
                - ben_redis

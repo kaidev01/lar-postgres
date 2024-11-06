@@ -19,6 +19,14 @@ RUN apt-get update && \
   docker-php-ext-enable redis && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
+
+# Cài đặt Node.js 18 và npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+  apt-get install -y nodejs
+
+# Kiểm tra phiên bản Node và npm
+RUN node -v && npm -v
+
 # Cài đặt Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
